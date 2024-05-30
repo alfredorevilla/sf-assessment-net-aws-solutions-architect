@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: ./AcmeCorp.CustomerManagement.API
+      dockerfile: Dockerfile
+    ports:
+      - 5000:80
+    depends_on:
+      - db
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: aaaa
+      MYSQL_DATABASE: acmecorp
+      MYSQL_USER: root
+      MYSQL_PASSWORD: aaaa
+    ports:
+      - 3306:3306
